@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        MIARGUMENTO: "Soy un argumento"
+    container_name: mynginx_svc
+    restart: always
+    environment:
+      MIVARIABLE: "Este mensaje desde docker compose"
+    ports:
+      - 8080:80
+    volumes:
+      - ./html/:/usr/share/nginx/html
